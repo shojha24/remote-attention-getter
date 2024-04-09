@@ -1,6 +1,6 @@
-#define SOFT_SPI_MISO_PIN 
-#define SOFT_SPI_MOSI_PIN
-#define SOFT_SPI_SCK_PIN
+#define SOFT_SPI_MISO_PIN // make sure to add pin numbers here
+#define SOFT_SPI_MOSI_PIN //
+#define SOFT_SPI_SCK_PIN //
 
 #include <DigitalIO.h>
 #include <Encoder.h>
