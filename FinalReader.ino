@@ -94,6 +94,9 @@ void loop() {
       if (counter == id) {                     // check if the received counter corresponds to device id
         while (button_state == LOW) {          // executes code until button is pressed
           digitalWrite(MOTOR_PIN, HIGH);       // turn motor on
+          delay(500);                          // wait 500 ms
+          digitalWrite(MOTOR_PIN, LOW);        // turn motor off
+          delay(500);                          // wait 500 ms
         }
         digitalWrite(MOTOR_PIN, LOW);          // turn motor off
       } else {
