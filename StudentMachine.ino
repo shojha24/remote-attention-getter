@@ -10,12 +10,6 @@
 #include <printf.h>
 #include <SPI.h>
 
-/*
- * See documentation at https://nRF24.github.io/RF24
- * See License information at root directory of this library
- * Author: Brendan Doherty (2bndy5)
-*/
-
 #define CE_PIN 7
 #define CSN_PIN 8
 
@@ -31,13 +25,6 @@ int button_state = 0;
 uint8_t address[][6] = { "1Node", "2Node" };
 // It is very helpful to think of an address as a path instead of as
 // an identifying device destination
-
-// to use different addresses on a pair of radios, we need a variable to
-// uniquely identify which address this radio will use to transmit
-bool radioNumber = 1;  // 0 uses address[0] to transmit, 1 uses address[1] to transmit
-
-// Used to control whether this node is sending or receiving
-bool role = false;  // true = TX role, false = RX role
 
 // Receiving a float from the other node that corresponds to the # device. Think of it as an ID.
 float counter = 0.0;

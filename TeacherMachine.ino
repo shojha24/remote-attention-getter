@@ -10,12 +10,6 @@
 #include <printf.h>
 #include <SPI.h>
 
-/*
- * See documentation at https://nRF24.github.io/RF24
- * See License information at root directory of this library
- * Author: Brendan Doherty (2bndy5)
-*/
-
 // Define rotary encoder pins
 #define ENC_A 2
 #define ENC_B 3
@@ -37,11 +31,6 @@ RF24 radio(CE_PIN, CSN_PIN);
 uint8_t address[][6] = { "1Node", "2Node" };
 // It is very helpful to think of an address as a path instead of as
 // an identifying device destination
-
-// to use different addresses on a pair of radios, we need a variable to
-// uniquely identify which address this radio will use to transmit
-bool radioNumber = 1;  // 0 uses address[0] to transmit, 1 uses address[1] to transmit
-
 
 void setup() {
 
