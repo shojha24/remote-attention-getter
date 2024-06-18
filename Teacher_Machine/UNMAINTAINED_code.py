@@ -1,3 +1,6 @@
+# DO NOT DOWNLOAD AND USE THIS VERSION OF THE CODE. I HAVE YET TO ADD LCD SUPPORT FOR MULTIPLE DEVICES
+# USE code.py FOR 1-TO-1 STUDENT TEACHER CONNECTION.
+
 import rotaryio
 import digitalio
 import board
@@ -39,13 +42,11 @@ button_state = None
 last_position = None
 
 while True:
-    #Uncomment below block and remove name_pos declaration if LCD support is enabled.
-    '''position = encoder.position
+    position = encoder.position
     name_pos = (position % 20) + 20 % 20;
     if last_position is None or position != last_position:
         print(name_pos)
-    last_position = position'''
-    name_pos = 1
+    last_position = position
 
     if not button.value and button_state is None:
 
