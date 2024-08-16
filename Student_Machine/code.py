@@ -29,7 +29,7 @@ rssi = wifi.radio.ap_info.rssi
 # basic request setup
 # change the number of the id to the next available number
 params = {"group": group, "id": "1"}
-REQUEST_URL = "https://attention-getter.vercel.app/student"
+REQUEST_URL = "https://remote-attention-getter-server.vercel.app/student"
 count = int(requests.get(REQUEST_URL, params=params).text)
 print(count)
 

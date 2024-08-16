@@ -26,7 +26,7 @@ rssi = wifi.radio.ap_info.rssi
 
 # Request URL
 
-REQUEST_URL = "https://attention-getter.vercel.app/teacher"
+REQUEST_URL = "https://remote-attention-getter-server.vercel.app/teacher"
 
 # other stuff starts now
 
