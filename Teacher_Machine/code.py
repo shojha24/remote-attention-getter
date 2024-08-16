@@ -13,6 +13,9 @@ print("Connecting to WiFi")
 #  connect to your SSID
 wifi.radio.connect(os.getenv('CIRCUITPY_WIFI_SSID'), os.getenv('CIRCUITPY_WIFI_PASSWORD'))
 
+#  unique to YOUR set of teacher/student devices. Make sure to update the GROUP_NAME in the .toml file, or the machines will not function properly.
+group = os.getenv('GROUP_NAME')
+
 print("Connected to WiFi")
 
 # Initalize Wifi, Socket Pool, Request Session
@@ -46,6 +49,7 @@ while True:
         print(name_pos)
     last_position = position'''
     name_pos = 1
+    params = {"group": group, "id": str(name_pos)}
 
     if not button.value and button_state is None:
 
@@ -56,6 +60,6 @@ while True:
 
         pixel.fill((0, 0, 0))
         print("Button pressed.")
-        with requests.get(REQUEST_URL, data=str(name_pos)) as response:
+        with requests.get(REQUEST_URL, params=params) as response:
             print(f"Response: {response.text}")
         button_state = None

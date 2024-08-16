@@ -15,6 +15,9 @@ print("Connecting to WiFi")
 #  connect to your SSID
 wifi.radio.connect(os.getenv('CIRCUITPY_WIFI_SSID'), os.getenv('CIRCUITPY_WIFI_PASSWORD'))
 
+#  unique to YOUR set of teacher/student devices. Make sure to update the GROUP_NAME in the .toml file, or the machines will not function properly.
+group = os.getenv('GROUP_NAME')
+
 print("Connected to WiFi")
 
 # Initalize Wifi, Socket Pool, Request Session
@@ -24,9 +27,10 @@ requests = adafruit_requests.Session(pool, ssl_context)
 rssi = wifi.radio.ap_info.rssi
 
 # basic request setup
-id = "1"
+# change the number of the id to the next available number
+params = {"group": group, "id": "1"}
 REQUEST_URL = "https://attention-getter.vercel.app/student"
-count = int(requests.get(REQUEST_URL, data=str(id)).text)
+count = int(requests.get(REQUEST_URL, params=params).text)
 print(count)
 
 # LED setup.
@@ -45,7 +49,7 @@ while True:
     print(button.value)"""
 
 while True:
-    with requests.get(REQUEST_URL, data=str(id)) as response:
+    with requests.get(REQUEST_URL, params=params) as response:
         if int(response.text) == count:
             pass
         else:
