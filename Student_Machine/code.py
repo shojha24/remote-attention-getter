@@ -49,7 +49,7 @@ while True:
     print(button.value)"""
 
 while True:
-    with requests.get(REQUEST_URL, params=params) as response:
+    with requests.get(REQUEST_URL, json=params) as response:
         if int(response.text) == count:
             pass
         else:

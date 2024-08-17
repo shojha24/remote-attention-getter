@@ -60,6 +60,6 @@ while True:
 
         pixel.fill((0, 0, 0))
         print("Button pressed.")
-        with requests.get(REQUEST_URL, params=params) as response:
+        with requests.get(REQUEST_URL, json=params) as response:
             print(f"Response: {response.text}")
         button_state = None
